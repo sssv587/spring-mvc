@@ -14,7 +14,7 @@
         <th>lastName</th>
         <th>email</th>
         <th>gender</th>
-        <th>options</th>
+        <th>options(<a th:href="@{/toAdd}">add</a> )</th>
     </tr>
     <tr th:each="employee : ${employeeList}">
         <td th:text="${employee.id}"></td>
@@ -31,7 +31,6 @@
 
 <form id="deleteForm" method="post">
     <input type="hidden" name="_method" value="delete">
-
 </form>
 <script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
 <script type="text/javascript">
