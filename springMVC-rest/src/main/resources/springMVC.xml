@@ -38,6 +38,6 @@
     <!--开放对静态资源的访问-->
     <mvc:default-servlet-handler/>
 
-    <!--开启MVC注解驱动-->
+    <!--开启MVC注解驱动,如果不配置,所有的请求都将被DispatchServlet来处理-->
     <mvc:annotation-driven/>
 </beans>
