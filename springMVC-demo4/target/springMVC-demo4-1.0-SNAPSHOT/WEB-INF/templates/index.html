@@ -16,6 +16,8 @@
     <input type="text" name="password"><br>
     <input type="submit" value="测试@RequestEntity">
 </form>
-<a th:href="@{/testResponse}">通过servletAPI的response对象响应浏览器数据</a>
+<a th:href="@{/testResponse}">通过servletAPI的response对象响应浏览器数据</a><br>
+<a th:href="@{/testResponseBody}">通过@ResponseBody响应浏览器数据</a><br>
+<a th:href="@{/testResponseUser}">通过@ResponseBody响应浏览器User对象</a><br>
 </body>
 </html>
