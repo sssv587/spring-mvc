@@ -6,9 +6,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -45,5 +47,21 @@ public class FileUpAndDownController {
         //关闭输入流
         is.close();
         return responseEntity;
+    }
+
+    @RequestMapping("testUp")
+    public String testUp(MultipartFile photo, HttpSession session) throws IOException {
+        String filename = photo.getOriginalFilename();
+        ServletContext servletContext = session.getServletContext();
+        String photoPath = servletContext.getRealPath("photo");
+        File file = new File(photoPath);
+        //判断photoPath所对应路径是否存在
+        if (!file.exists()) {
+            //如不存在，则创建目录
+            file.mkdir();
+        }
+        String finalPath = photoPath + File.separator + filename;
+        photo.transferTo(new File(finalPath));
+        return "success";
     }
 }

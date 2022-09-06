@@ -40,4 +40,7 @@
 
     <!--开启MVC注解驱动,如果不配置,所有的请求都将被DispatchServlet来处理-->
     <mvc:annotation-driven/>
+
+    <!--配置文件上传解析器，将上传的文件封装为MultipartFile-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 </beans>
