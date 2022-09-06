@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="springMVC-demo1" />
         <module name="springMVC-demo2" />
+        <module name="springMVC-demo5" />
         <module name="springMVC-demo3" />
         <module name="springMVC-rest" />
         <module name="springMVC-demo4" />
@@ -18,6 +19,7 @@
       <module name="springMVC-demo2" target="8" />
       <module name="springMVC-demo3" target="8" />
       <module name="springMVC-demo4" target="1.8" />
+      <module name="springMVC-demo5" target="1.8" />
       <module name="springMVC-rest" target="1.8" />
     </bytecodeTargetLevel>
   </component>
