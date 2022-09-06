@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.UUID;
 
 /**
  * @author yuhang.sun
@@ -51,7 +52,15 @@ public class FileUpAndDownController {
 
     @RequestMapping("testUp")
     public String testUp(MultipartFile photo, HttpSession session) throws IOException {
+        //获取上传的文件的文件名
         String filename = photo.getOriginalFilename();
+        //获取上传的文件的后缀名
+        String suffixName = filename.substring(filename.lastIndexOf("."));
+        //将UUID作为文件名
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+        //将uuid和后缀名拼接后的结果作为最终的文件名
+        filename = uuid + suffixName;
+        //通过ServletContext获取服务器中photo目录的路径
         ServletContext servletContext = session.getServletContext();
         String photoPath = servletContext.getRealPath("photo");
         File file = new File(photoPath);
