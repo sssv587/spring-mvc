@@ -41,25 +41,30 @@
     <mvc:annotation-driven/>
 
     <!--配置拦截器-->
-<!--    <mvc:interceptors>-->
-        <!--        <bean class="com.futurebytedance.interceptors.FirstInterceptor"></bean>-->
-        <!--        <ref bean="firstInterceptor"></ref>-->
-        <!--        <mvc:interceptor>-->
-        <!--            <mvc:mapping path="/**"/>-->
-        <!--            <mvc:exclude-mapping path="/"/>-->
-        <!--            <ref bean="firstInterceptor"></ref>-->
-        <!--        </mvc:interceptor>-->
-<!--        <ref bean="firstInterceptor"></ref>-->
-<!--        <ref bean="secondInterceptor"></ref>-->
-<!--    </mvc:interceptors>-->
+    <!--    <mvc:interceptors>-->
+    <!--        <bean class="com.futurebytedance.interceptors.FirstInterceptor"></bean>-->
+    <!--        <ref bean="firstInterceptor"></ref>-->
+    <!--        <mvc:interceptor>-->
+    <!--            <mvc:mapping path="/**"/>-->
+    <!--            <mvc:exclude-mapping path="/"/>-->
+    <!--            <ref bean="firstInterceptor"></ref>-->
+    <!--        </mvc:interceptor>-->
+    <!--        <ref bean="firstInterceptor"></ref>-->
+    <!--        <ref bean="secondInterceptor"></ref>-->
+    <!--    </mvc:interceptors>-->
 
     <!--配置异常处理-->
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <props>
+            <!--
+        		properties的键表示处理器方法执行过程中出现的异常
+        		properties的值表示若出现指定异常时，设置一个新的视图名称，跳转到指定页面
+        	-->
                 <prop key="java.lang.ArithmeticException">error</prop>
             </props>
         </property>
+        <!--设置将异常信息共享在请求域中的键-->
         <property name="exceptionAttribute" value="ex"></property>
     </bean>
 </beans>
